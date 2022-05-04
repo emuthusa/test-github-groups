@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build:
+  go-tests:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -26,3 +26,5 @@ jobs:
     
     - name: Run
       run: go run main.go
+      env:
+        AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
