@@ -7,24 +7,30 @@ on:
     branches: [ main, /^release-.*$/ ]
 
 jobs:
-
-  go-tests:
-    runs-on: ubuntu-latest
+  test-onprem-runner:
+    runs-on: itk8s-svldev-2-runner
     steps:
-    - uses: actions/checkout@v3
-
-    - name: Set up Go
-      uses: actions/setup-go@v3
-      with:
-        go-version: 1.18
-
-    - name: Build
-      run: go build -v ./...
-
-    - name: Test
-      run: go test -v ./...
+    - name: test list dirs
+      run: whoami
+      shell: bash
     
-    - name: Run
-      run: go run main.go
-      env:
-        AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+#   go-tests:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v3
+
+#     - name: Set up Go
+#       uses: actions/setup-go@v3
+#       with:
+#         go-version: 1.18
+
+#     - name: Build
+#       run: go build -v ./...
+
+#     - name: Test
+#       run: go test -v ./...
+    
+#     - name: Run
+#       run: go run main.go
+#       env:
+#         AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
