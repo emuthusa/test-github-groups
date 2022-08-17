@@ -14,23 +14,23 @@ jobs:
       run: whoami
       shell: bash
     
-#   go-tests:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@v3
+  go-tests:
+    runs-on: itk8s-svldev-2-runner
+    steps:
+    - uses: actions/checkout@v3
 
-#     - name: Set up Go
-#       uses: actions/setup-go@v3
-#       with:
-#         go-version: 1.18
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.18
 
-#     - name: Build
-#       run: go build -v ./...
+    - name: Build
+      run: go build -v ./...
 
-#     - name: Test
-#       run: go test -v ./...
+    - name: Test
+      run: go test -v ./...
     
-#     - name: Run
-#       run: go run main.go
-#       env:
-#         AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+    - name: Run
+      run: go run main.go
+      env:
+        AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
